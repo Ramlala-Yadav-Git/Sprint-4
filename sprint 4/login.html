@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <style>
+      .container {
+        border: 1px solid black;
+      }
+      .navbar {
+        display: flex;
+        flex-direction: row-reverse;
+        background-color: teal;
+      }
+      .navbar > div {
+        margin: 1%;
+        font-weight: bold;
+        color: white;
+      }
+       #l_form {
+        /* width: 50%; */
+        margin: auto;
+        text-align: center;
+        background-color: turquoise;
+        padding: 1%;
+        height: 500px;
+      }
+      #l_form input,
+      #l_form button {
+        display: block;
+        margin: auto;
+        padding: 6px;
+        margin-bottom: 1%;
+        margin-top: 1%;
+        width: 20%;
+        
+      }
+      #l_form button {
+        width: 21%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div><a href="signup.html">sign Up</a></div>
+        <div><a href="login.html">Log In</a></div>
+        <div><a href="index.html">Home</a></div>
+      </div>
+        </button>
+ <form id="l_form">
+        <input type="text" placeholder="name" id="name" />
+        <input type="email" placeholder="email" id="email" />
+        <input type="password" placeholder="password" id="password" />
+        <button type="submit" onclick="login(event)" id="sign_btn">
+          Log In
+        </button>
+      </form>
+    </div>
+  </body>
+  <script>
+      function login(e){
+          e.preventDefault();
+      let form =document.getElementById("l_form");
+      let name = form.name.value;
+      let email = form.email.value;
+      let password = form.password.value;
+
+      let data = JSON.parse(localStorage.getItem("data"))
+      let value = false;
+         for(let i=0; i<data.length; i++){
+             if(data[i].name === name && data[i].email === email && data[i].password === password){
+                 value = true;
+                 alert("You are Succesfully Login");
+                
+             }
+        if(value){break;}
+
+
+         }
+         if(value){
+             window.location.href = "index.html"
+         }
+
+      console.log(data);
+      }
+
+
+      
+  </script>
+</html>

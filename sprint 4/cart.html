@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Cart</title>
+    <style>
+      .container {
+        border: 1px solid black;
+        text-align: center;
+      }
+      .navbar {
+        display: flex;
+        flex-direction: row-reverse;
+        background-color: teal;
+      }
+      .navbar > div {
+        margin: 1%;
+        font-weight: bold;
+        color: white;
+      }
+      .welcome {
+        background-color: rgba(10, 221, 203, 0.452);
+        padding: 1%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div><a href="signup.html">sign Up</a></div>
+        <div><a href="login.html">Log In</a></div>
+        <div><a href="index.html">Home</a></div>
+      </div>
+      <div class="welcome">
+        <h1>Welcome to Your Cart</h1>
+      </div>
+      <div id="items"></div>
+      <button>Check Out</button>
+    </div>
+  </body>
+  <script>
+    let items = document.getElementById("items");
+    let item = JSON.parse(localStorage.getItem("items"));
+  </script>
+</html>

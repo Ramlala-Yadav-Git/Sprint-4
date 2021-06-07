@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up</title>
+    <style>
+      .container {
+        border: 1px solid black;
+      }
+      .navbar {
+        display: flex;
+        flex-direction: row-reverse;
+        background-color: teal;
+      }
+      .navbar > div {
+        margin: 1%;
+        font-weight: bold;
+        color: white;
+      }
+      #s_form {
+        /* width: 50%; */
+        margin: auto;
+        text-align: center;
+        background-color: turquoise;
+        padding: 1%;
+        height: 500px;
+      }
+      #s_form input,
+      #s_form button {
+        display: block;
+        margin: auto;
+        padding: 6px;
+        margin-bottom: 1%;
+        margin-top: 1%;
+        width: 20%;
+      }
+      #s_form button {
+        width: 21%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div><a href="signup.html">sign Up</a></div>
+        <div><a href="login.html">Log In</a></div>
+        <div><a href="index.html">Home</a></div>
+      </div>
+      <form id="s_form">
+        <input type="text" placeholder="name" id="name" />
+        <input type="email" placeholder="email" id="email" />
+        <input type="password" placeholder="password" id="password" />
+        <button type="submit" onclick="sign(event)" id="sign_btn">
+          SIGN UP
+        </button>
+      </form>
+    </div>
+  </body>
+  <script>
+    function sign(e) {
+      e.preventDefault();
+
+      let form = document.getElementById("s_form");
+      let name = form.name.value;
+      let email = form.email.value;
+      let password = form.password.value;
+
+      let data = {
+        name: name,
+        email: email,
+        password: password,
+      };
+
+      //   if (localStorage.getItem("data") === null) {
+      //     localStorage.setItem("data", JSON.stringify(data));
+      //   }
+
+      let arr = localStorage.getItem("data");
+
+      if (arr == null) {
+        arr = [];
+      } else {
+        arr = JSON.parse(localStorage.getItem("data"));
+      }
+      arr.push(data);
+
+      localStorage.setItem("data", JSON.stringify(arr));
+      console.log(arr);
+      alert("You are suceesfully Sign Up");
+
+      window.location.href = "login.html";
+    }
+  </script>
+</html>
